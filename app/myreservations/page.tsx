@@ -55,7 +55,9 @@ const MyReservationsPage = () => {
                         <p className="mb-2"><strong>Number of nights: </strong> 2 </p>
                         <p className="mb-2"><strong>Total price: </strong> $200 </p>
 
-                        <div className="mt-6 inline-block cursor-pointer py-4 px-6 bg-airbnb text-white rounded-xl">Go to Property</div>
+                        <div className="mt-6 inline-block cursor-pointer py-4 px-6 bg-airbnb text-white rounded-xl">
+                            Go to Property
+                        </div>
 
                     </div>
                 </div>

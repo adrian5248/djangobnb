@@ -8,7 +8,7 @@ const InboxPage = () => {
                 <Conversation/>
                 <Conversation/>
                 <Conversation/>
-                <Conversation/> 
+                <Conversation/>
         </main>
     )
 }

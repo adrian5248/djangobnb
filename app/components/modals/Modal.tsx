@@ -14,9 +14,9 @@ const Modal: React.FC<ModalProps> = ({
     content,
     isOpen,
     close
+
 }) => {
     const [showModal, setShowModal] = useState(isOpen)
-
 
     useEffect(() => {
         setShowModal(isOpen)

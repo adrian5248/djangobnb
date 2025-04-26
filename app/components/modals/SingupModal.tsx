@@ -20,7 +20,7 @@ const SingupModal = () => {
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
-    const [erros, setErrors] = useState<string[]>([]);
+    const [errors, setErrors] = useState<string[]>([]);
 
     //
     // Submit functionality
@@ -38,7 +38,6 @@ const SingupModal = () => {
         if (response.access) {
             
             handleLogin(response.user.pk, response.access, response.refresh);
-
 
             singupModal.close();
 
@@ -65,7 +64,7 @@ const SingupModal = () => {
 
                     <input onChange={(e) => setPassword2(e.target.value)} placeholder="Repeat password" type="password" className="w-full h-[54px] px-4 border border-gray-300 rounded-xl"/>
 
-                    {erros.map((error, index) => {
+                    {errors.map((error, index) => {
                         return (
                             <div
                                 key={`error_${index}`}

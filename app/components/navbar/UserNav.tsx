@@ -3,17 +3,23 @@
 import { useState } from "react";
 
 import MenuLink from "./MenuLink";
-
+import LogoutButton from "../Logoutbutton";
+    
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useSingupModal from "@/app/hooks/useSingupModal";
 
-const UserNav = () => {
+interface UserNavProps {
+    userId?: string | null;
+}
+
+const UserNav: React.FC<UserNavProps> = ({
+    userId
+}) => {
     const loginModal = useLoginModal();
-
     const singupModal = useSingupModal();
-
     const [isOpen, setIsOpen] = useState(false)
 
+    console.log('sgvsygc', userId)
 
     return (
         <div className="p-2 relative inline-block border rounded-full">
@@ -32,21 +38,27 @@ const UserNav = () => {
 
             {isOpen && (
                 <div className="w-[220px] absolute top-[60px] right-0 bg-white border rounded-xl shadow-md flex flex-col cursor-pointer">
-                    <MenuLink
-                        label='Log in'
-                        onClick={() => {
-                            setIsOpen(false);
-                            loginModal.open();
-                        }}
-                    />
+                    {userId ? (
+                        <LogoutButton />
+                    ) : (
+                        <>
+                            <MenuLink
+                                label='Log in'
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    loginModal.open();
+                                }}
+                            />
 
-                    <MenuLink
-                        label="Sing in"
-                        onClick={() => {
-                            setIsOpen(false)
-                            singupModal.open();
-                        }}
-                    />
+                            <MenuLink
+                                label="Sing in"
+                                onClick={() => {
+                                    setIsOpen(false)
+                                    singupModal.open();
+                                }}
+                            />
+                        </>
+                    )}
                 </div>
             )}
         </div>
